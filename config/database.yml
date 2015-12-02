@@ -1,6 +1,8 @@
 defaults: &defaults
   adapter: postgresql
   encoding: unicode
+  username: <%=ENV['USERNAME_DATABASE']%>
+  password: <%=ENV['PASSWORD_DATABASE']%>
   min_messages: warning
   timeout: 5000
   pool: <%= [ENV.fetch("MAX_THREADS", 5), ENV.fetch("DB_POOL", 5)].max %>
