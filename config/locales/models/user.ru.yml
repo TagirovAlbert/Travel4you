@@ -1,0 +1,24 @@
+ru:
+  activerecord:
+   models:
+     user:
+   attributes:
+     user:
+       full_name: "Полное имя"
+       email: "Email"
+       password: "Пароль"
+       password_confirmation: "Повторите пароль"
+       remember_me: "Запомнить меня"
+
+   errors:
+    models:
+     user:
+      attributes:
+        full_name:
+            blank: "Полное имя не может быть пустым"
+            invalid: "Неверное имя"
+        email:
+            blank: "Email не должен быть пустым"
+            invalid: "Неверный email"
+        password:
+            blank: "Пароль не может быть пустым"
