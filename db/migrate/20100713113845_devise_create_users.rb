@@ -26,7 +26,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       t.timestamps
-      t.string :full_name
     end
 
     add_index :users, :email,                unique: true
