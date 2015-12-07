@@ -1,4 +1,4 @@
-class UsersController
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users/:id.:format

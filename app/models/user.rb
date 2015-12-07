@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
+  has_many :identities, :dependent => :delete_all
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-  validates :first_name,:last_name, presence: true,length: {in: 3..18}
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
