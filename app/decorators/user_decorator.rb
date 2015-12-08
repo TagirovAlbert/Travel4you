@@ -4,7 +4,8 @@ class UserDecorator < ApplicationDecorator
   def full_name_with_email
     "#{object.first_name} #{object.last_name} (#{object.email})"
   end
-  def is_sign_omni?
+
+  def not_have_ident?
     "#{object.identities.first.nil?}"
   end
 end
