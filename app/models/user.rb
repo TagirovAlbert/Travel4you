@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
       # Создать пользователя, если это новая запись
       if user.nil?
         user = User.new(
-            first_name: auth['extra']['raw_info']['name'].split.second,
-            last_name: auth['extra']['raw_info']['name'].split.first,
+            first_name: auth['extra']['raw_info']['first_name']||auth['extra']['raw_info']['name'].split.second,
+            last_name: auth['extra']['raw_info']['last_name']||auth['extra']['raw_info']['name'].split.first,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
             password: Devise.friendly_token[0,20]
         )
