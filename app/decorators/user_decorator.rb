@@ -6,6 +6,6 @@ class UserDecorator < ApplicationDecorator
   end
 
   def not_have_ident?
-    "#{object.identities.first.nil?}"
+    object.identities.first.nil?
   end
 end

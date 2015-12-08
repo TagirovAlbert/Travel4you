@@ -1,8 +1,6 @@
 .row
   .columns
-    h2 = title("Редактировать #{current_user.first_name} #{current_user.is_sign_omni?} #{current_user.last_name}")
-
-
+    h2 = title("Редактировать #{current_user.first_name}  #{current_user.last_name}")
 
 .row
   .medium-6.columns
@@ -16,7 +14,7 @@
         = f.input :last_name, required: true, autofocus: true
         = f.input :first_name, required: true, autofocus: true
         = f.input :email, required: true
-        - if current_user.is_sign_omni?
+        -if current_user.not_have_ident?
            = f.input :password,
             autocomplete: "off",
             required: false
@@ -24,7 +22,6 @@
             required: false
            = f.input :current_password,
             required: true
-
       .form-actions
         = f.button :submit, "Обновить"
 
