@@ -1,5 +1,5 @@
 <% module_namespacing do -%>
-class <%= controller_class_name %>Controller < ApplicationController
+class <%= controller_class_name %>UserController < ApplicationController
   respond_to :html
 
   expose(:<%= singular_table_name %>, attributes: :<%= singular_table_name %>_params)
