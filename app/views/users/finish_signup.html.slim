@@ -1,0 +1,20 @@
+.row
+  .columns
+    h2 = title("Подтвердите свою почту")
+
+.row
+  .medium-6.columns
+    = simple_form_for current_user,
+                      as: current_user,
+                      url: finish_signup_path(current_user),
+                      html: {method: :patch} do |f|
+      .form-inputs
+        = f.input :email, required: true, autofocus: true
+        h6 Пожалуйста подтвержите. Это не спам!
+
+      .form-actions
+        = f.button :submit, "Зарегистрироваться"
+
+  .medium-6.columns.end
+    = image_tag 'albatros'
+    h5 Спасибо что вы с нами!

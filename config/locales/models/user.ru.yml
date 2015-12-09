@@ -28,6 +28,7 @@ ru:
         email:
             blank: "Email не должен быть пустым"
             invalid: "Неверный email"
+
         password:
             blank: "Пароль не может быть пустым"
             too_short: "Пароль слишком короткий"
@@ -36,3 +37,4 @@ ru:
         current_password:
             blank: "Заполните поле текущего пароля"
             invalid: "Неверный текущий пароль"
+
