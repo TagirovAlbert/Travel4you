@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :identities, :dependent => :delete_all
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable, #:confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
@@ -27,15 +27,24 @@ class User < ActiveRecord::Base
       email = auth['extra']['raw_info']['email']
       user = User.where(:email => email).first if email
 
-      # Создать пользователя, если это новая запись
+      if auth.provider == "twitter"
+        f_name =auth['extra']['raw_info']['name'].split.first
+        l_name =auth['extra']['raw_info']['name'].split.second
+      else
+        f_name=auth['extra']['raw_info']['first_name']||auth['extra']['raw_info']['name'].split.second
+        l_name=auth['extra']['raw_info']['last_name']||auth['extra']['raw_info']['name'].split.first
+       end
+
+
+            # Создать пользователя, если это новая запись
       if user.nil?
         user = User.new(
-            first_name: auth['extra']['raw_info']['first_name']||auth['extra']['raw_info']['name'].split.second,
-            last_name: auth['extra']['raw_info']['last_name']||auth['extra']['raw_info']['name'].split.first,
+            first_name: f_name,
+            last_name: l_name,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
             password: Devise.friendly_token[0,20]
         )
-        user.skip_confirmation!
+       # user.skip_confirmation!
         user.save!
       end
     end

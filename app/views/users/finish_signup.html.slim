@@ -1,5 +1,3 @@
-
-
 .row
   .columns
     h2 = title("Подтвердите свою почту")
@@ -7,9 +5,9 @@
 .row
   .medium-6.columns
     = simple_form_for current_user,
-                      as: 'user',
-                      url: finish_signup_path('user'),
-                      html: {method: :put} do |f|
+                      as: current_user,
+                      url: finish_signup_path(current_user),
+                      html: {method: :patch} do |f|
       .form-inputs
         = f.input :email, required: true, autofocus: true
         h6 Пожалуйста подтвержите. Это не спам!
