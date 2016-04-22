@@ -113,7 +113,10 @@ legend {
 .geoobject__desc {
   background-color: #241f21;
   width: 100%;
-  padding: 10px;
+  padding-left: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-top: 10px;
   position: relative;
   border-radius: 0 0 5px 5px;
   -webkit-box-sizing: border-box;
@@ -133,7 +136,11 @@ legend {
   line-height: 1.3em;
   font-size: 14px;
   font-weight: 700;
-  margin: 0;
+  margin-bottom: 5px;
+}
+
+i.fi-eye{
+  font-size: small;
 }
 
 .geoobject__place-country {
@@ -141,7 +148,7 @@ legend {
   font-size: 12px;
 }
 .feed__item-activities {
-  margin-top: -30px;
+  margin-top: -60px;
   margin-left: 20px;
   width: 265px;
 }
@@ -158,8 +165,9 @@ legend {
 }
 
 .feed__item-activities {
-  margin-top: -30px;
-  margin-left: 20px;
+  margin-top: -40px;
+  margin-left: 10px;
+  margin-bottom: 13px;
   width: 265px;
 }
 
