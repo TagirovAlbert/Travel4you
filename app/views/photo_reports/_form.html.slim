@@ -1,0 +1,12 @@
+.scaffold-form
+  = simple_form_for(photo_report) do |f|
+    .form-inputs
+      = f.input :name
+      = f.input :description
+      = f.input :visitors
+
+    .form-actions
+      = f.button :submit
+      '  or
+      = link_to 'Back', :back
+

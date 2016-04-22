@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :identities, :dependent => :delete_all
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
+  TEMP_LOGIN_PREFIX = 'change_login'
+  TEMP_LOGIN_REGEX = /\Achange_login/
   devise :database_authenticatable, :registerable, #:confirmable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
@@ -25,6 +27,8 @@ class User < ActiveRecord::Base
       # Если email не был предоставлен мы даем пользователю временный и просим
       # пользователя установить и подтвердить новый в следующим шаге через UsersController.finish_signup
       email = auth['extra']['raw_info']['email']
+      login = auth['info']['nickname'] || auth['extra']['raw_info']['username']
+
       user = User.where(:email => email).first if email
 
       if auth.provider == "twitter"
@@ -42,6 +46,7 @@ class User < ActiveRecord::Base
             first_name: f_name,
             last_name: l_name,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+            login: login ? login: "#{TEMP_LOGIN_PREFIX}-#{auth.ui}-#{auth.provider}.com",
             password: Devise.friendly_token[0,20]
         )
        # user.skip_confirmation!

@@ -1,0 +1,27 @@
+.show-item
+  .well.region.form-horizontal
+
+    .control-group
+      label.control-label
+        | Name
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = region.name
+    .control-group
+      label.control-label
+        | Description
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = region.description
+    .control-group
+      label.control-label
+        | Visitors
+      .controls
+        .input-xlarge.uneditable-input.integer.span7
+          = region.visitors
+  .form-actions
+    = link_to(edit_region_path(region), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

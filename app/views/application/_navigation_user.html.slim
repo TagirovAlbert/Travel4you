@@ -10,6 +10,19 @@ ul.right
         li
           a href = destroy_user_session_path
             | Sign out
+      li.has-dropdown
+        a.user-dropdown(href="#") = "Создать"
+        ul.dropdown
+          new_user_registration_path
+          li
+            a href = "#"
+              | Фотоотчёт
+          li
+            a href = "#"
+              | Маршрут
+          li
+            a href = "#"
+              | Место
   - else
     = active_link_to "Войти", new_user_session_path, active: :exclusive, wrap_tag: :li
     = active_link_to "Регистрация", new_user_registration_path, active: :exclusive, wrap_tag: :li

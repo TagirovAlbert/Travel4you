@@ -1,4 +1,41 @@
+.orbit aria-label=("Favorite Space Pictures") data-orbit="" role="region"
+
+ li.orbit-slide.is-active
+   h1 Выбирай свой путь для путешествий
+   =image_tag "wroclaw"
+ li.orbit-slide
+   h1 Создавай путешестве своей мечты
+   =image_tag "vaticano"
+ li.orbit-slide
+   h1 Теперь ты не будешь потеряшкой
+   =image_tag "uzhn_america"
+ li.orbit-slide
+   h1 Travel4you погрузит тебя в мир приключений
+   =image_tag "traveller"
+ li.orbit-slide
+   h1 Присоединяйся к нам и будет тебе счастье!
+   =image_tag "spain"
+row
+  .large-6.large-centered.columns
+    .row.collapse.postfix-round
+      .small-9.columns
+        input placeholder="Введите название города или места" type="text" /
+      .small-3.columns
+        a.button.postfix href="#"  Найти
+
 .row
-  .columns
-    h2
-      = title("Главная")
+  .medium-12.columns
+    #masonryContainer
+      - @countries.each do |country|
+        .li.feed__item.masonry-brick
+          .a.geoobject.href = link_to country
+          .geoobject__image
+            = image_tag(country.image_url(:min_table)) if country.image?
+          .geoobject__desc
+            .geoobject__title
+              .h2 = country.name
+              .geoobject__places-counter = country.visitors
+            .geoobject__place-country = "Пример"
+            .feed__item-activities.likes-comments__stats
+              .feed__view-count.icon-eye_tiny
+                = country.visitors

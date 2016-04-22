@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207192814) do
+ActiveRecord::Schema.define(version: 20160421140251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "visitors"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "coordinates", force: :cascade do |t|
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "visitors"
+    t.text     "information"
+    t.text     "history"
+    t.text     "economic"
+    t.text     "culture"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "country_id"
+    t.string   "image"
+  end
+
+  add_index "countries", ["country_id"], name: "index_countries_on_country_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,6 +55,35 @@ ActiveRecord::Schema.define(version: 20151207192814) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
+  create_table "paragraphs", force: :cascade do |t|
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "photo_reports", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "visitors"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "visitors"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -45,10 +104,12 @@ ActiveRecord::Schema.define(version: 20151207192814) do
     t.datetime "updated_at"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
+    t.string   "login",                               null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "countries", "countries"
   add_foreign_key "identities", "users"
 end

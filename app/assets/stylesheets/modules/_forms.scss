@@ -83,3 +83,85 @@ legend {
 .button {
   white-space: normal;
 }
+
+.feed__item {
+  float: left;
+  width: 300px;
+  margin: 0 0 20px;
+  position: relative;
+  display: block;
+}
+
+.geoobject {
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: block;
+  text-decoration: none;
+}
+
+.geoobject__image {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  background-color: #e5e5e5;
+}
+.geoobject__desc {
+  background-color: #241f21;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+  border-radius: 0 0 5px 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  /* box-sizing: border-box; */
+}
+.geoobject__places-counter {
+  font-size: 12px;
+  font-weight: normal;
+  color: #e6e6e6;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+}
+.geoobject__title {
+  color: #fff;
+  line-height: 1.3em;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.geoobject__place-country {
+  color: #999999;
+  font-size: 12px;
+}
+.feed__item-activities {
+  margin-top: -30px;
+  margin-left: 20px;
+  width: 265px;
+}
+.likes-comments__stats {
+  float: right;
+}
+.feed__view-count {
+  color: #999;
+  font-size: 12px;
+}
+.icon-eye_tiny:before, .material-view-count:before {
+  content: "\e601";
+  font-family: "yr_icons_patch";
+}
+
+.feed__item-activities {
+  margin-top: -30px;
+  margin-left: 20px;
+  width: 265px;
+}
+
+.masonry-brick { width: 300px; margin: 10px; float: left;  }
+#masonryContainer { width: 0 auto; }

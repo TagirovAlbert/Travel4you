@@ -1,0 +1,27 @@
+.show-item
+  .well.photo_report.form-horizontal
+
+    .control-group
+      label.control-label
+        | Name
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = photo_report.name
+    .control-group
+      label.control-label
+        | Description
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = photo_report.description
+    .control-group
+      label.control-label
+        | Visitors
+      .controls
+        .input-xlarge.uneditable-input.integer.span7
+          = photo_report.visitors
+  .form-actions
+    = link_to(edit_photo_report_path(photo_report), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

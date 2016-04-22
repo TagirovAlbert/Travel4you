@@ -1,0 +1,15 @@
+.container-alba.scaffold-form
+  = simple_form_for(country) do |f|
+    .form-inputs
+      = f.input :name
+      = f.input :visitors
+      = f.input :information
+      = f.input :history
+      = f.input :economic
+      = f.input :culture
+      = f.input :image, as: :file
+    .form-actions
+      = f.button :submit
+      '  or
+      = link_to 'Back', :back
+

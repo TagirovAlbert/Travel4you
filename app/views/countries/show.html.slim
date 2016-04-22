@@ -1,0 +1,76 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.show-item
+  .well.country.form-horizontal
+
+    .control-group
+      label.control-label
+        | Name
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = country.name
+    .control-group
+      label.control-label
+        | Visitors
+      .controls
+        .input-xlarge.uneditable-input.integer.span7
+          = country.visitors
+    .control-group
+      label.control-label
+        | Information
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = country.information
+    .control-group
+      label.control-label
+        | History
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = country.history
+    .control-group
+      label.control-label
+        | Economic
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = country.economic
+    .control-group
+      label.control-label
+        | Culture
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = country.culture
+    .control-group
+      label.control-label
+        | Image
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = image_tag(country.image_url(:min_table))
+  .form-actions
+    = link_to(edit_country_path(country), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

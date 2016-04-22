@@ -1,4 +1,7 @@
 ul.left
   - if user_signed_in?
     = active_link_to "Главная", root_path, active: :exclusive, wrap_tag: :li
+    = active_link_to "Моя лента", "#", wrap_tag: :li,active: :exclusive
+    = active_link_to "Путеводитель", "#", wrap_tag: :li,active: :exclusive
+    = active_link_to "Фотоотчёты", "#", wrap_tag: :li,active: :exclusive
     = active_link_to "О нас", about_path, wrap_tag: :li,active: :exclusive

@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: 6899b7916c26c101c368c10758d4fce9fa65a3f2
+  specs:
+    carrierwave (0.11.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
+GIT
   remote: https://github.com/jfirebaugh/skim
   revision: ca1e39fae0f957634575d6f8b53c5d66fda7f925
   specs:
@@ -208,6 +217,7 @@ GEM
       rails (>= 3.0.0)
     method_source (0.8.2)
     mime-types (2.6.1)
+    mini_magick (4.5.1)
     mini_portile (0.6.2)
     minitest (5.8.1)
     multi_json (1.11.0)
@@ -435,6 +445,7 @@ DEPENDENCIES
   byebug
   capybara
   capybara-webkit
+  carrierwave!
   codeclimate-test-reporter
   coffee-rails
   coffeelint
@@ -463,6 +474,7 @@ DEPENDENCIES
   letter_opener
   memory_profiler
   metamagic
+  mini_magick
   newrelic_rpm
   omniauth
   omniauth-facebook
@@ -502,4 +514,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

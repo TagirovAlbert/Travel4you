@@ -1,0 +1,21 @@
+.show-item
+  .well.place.form-horizontal
+
+    .control-group
+      label.control-label
+        | Name
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = place.name
+    .control-group
+      label.control-label
+        | Description
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = place.description
+  .form-actions
+    = link_to(edit_place_path(place), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

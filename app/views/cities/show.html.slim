@@ -1,0 +1,27 @@
+.show-item
+  .well.city.form-horizontal
+
+    .control-group
+      label.control-label
+        | Name
+      .controls
+        .input-xlarge.uneditable-input.string.span7
+          = city.name
+    .control-group
+      label.control-label
+        | Description
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = city.description
+    .control-group
+      label.control-label
+        | Visitors
+      .controls
+        .input-xlarge.uneditable-input.integer.span7
+          = city.visitors
+  .form-actions
+    = link_to(edit_city_path(city), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

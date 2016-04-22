@@ -4,6 +4,7 @@ class User
       first_name
       last_name
       email
+      login
       password
       password_confirmation
     )

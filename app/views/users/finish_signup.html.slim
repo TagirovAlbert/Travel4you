@@ -10,6 +10,7 @@
                       html: {method: :patch} do |f|
       .form-inputs
         = f.input :email, required: true, autofocus: true
+        = f.input :login, required: true, autofocus: true
         h6 Пожалуйста подтвержите. Это не спам!
 
       .form-actions

@@ -25,6 +25,8 @@ gem "slim"
 # all other gems
 gem "decent_decoration"
 gem "decent_exposure"
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
 gem "devise"
 gem "omniauth"
 gem "omniauth-facebook"
