@@ -9,13 +9,16 @@
            .geoobject__image
              = image_tag(country.image_url(:min_table)) if country.image?
            .geoobject__desc
-             .geoobject__title
-               .h2 =country.name
-               .geoobject__places-counter =country.visitors
+             .h2.geoobject__title
+                 =country.name
+                 span.geoobject__places-counter =country.visitors
              .geoobject__place-country  = "Пример"
-             .feed__item-activities.likes-comments__stats
-               .feed__view-count.icon-eye_tiny
-                 =country.visitors
+             .feed__item-activities
+               br
+               .likes-comments__stats
+                .feed__view-count
+                  i.fi-eye.large
+                  =country.visitors
 
 
 
