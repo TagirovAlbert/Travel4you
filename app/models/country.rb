@@ -1,5 +1,6 @@
 require 'carrierwave/orm/activerecord'
 class Country < ActiveRecord::Base
   has_many :city
-  mount_uploader :image, ImageUploader
+  has_many :photo_reports
+  mount_uploaders :images, ImagesUploader
 end

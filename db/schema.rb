@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20160421140251) do
     t.text     "history"
     t.text     "economic"
     t.text     "culture"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "country_id"
-    t.string   "image"
+    t.string   "images",      default: [],              array: true
   end
 
   add_index "countries", ["country_id"], name: "index_countries_on_country_id", using: :btree

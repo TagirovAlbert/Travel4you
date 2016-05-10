@@ -63,14 +63,25 @@
         .input-xlarge.uneditable-input.text.span7
           = country.culture
     .control-group
-      label.control-label
-        | Image
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = image_tag(country.image_url(:min_table))
+       label.control-label
+         | Image
+       ul.clearing-thumbs.small-block-grid-4 data-clearing= ""
+        - country.images.each_with_index do |photo, index |
+         li
+          a href = photo.url
+             = image_tag(photo.url)
+             = link_to "Delete", country_image_path(country, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }
+  h1 Добавить больше фотографий
+
+  = form_for country, url: country_images_path(country.id), method: :post do |f| # use customized url endpoint
+    .field
+      = f.file_field :images, multiple: true
+
+    = f.submit "Add More Images"
   .form-actions
     = link_to(edit_country_path(country), class: 'btn btn-primary') do
       i.fi-pencil
       | Edit
     '  or
     = link_to 'Back', :back
+

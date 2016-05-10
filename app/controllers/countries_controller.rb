@@ -22,6 +22,6 @@ class CountriesController < ApplicationController
   private
 
   def country_params
-    params.require(:country).permit(:name, :visitors, :information, :history, :economic, :image, :culture)
+    params.require(:country).permit(:name, :visitors, :information, :history, :economic, {images: []}, :culture)
   end
 end

@@ -7,7 +7,7 @@
       .li.feed__item.masonry-brick
         .a.geoobject.href =link_to country
            .geoobject__image
-             = image_tag(country.image_url(:min_table)) if country.image?
+             = image_tag(country.images[0].url(:max_table)) if !country.images.empty?
            .geoobject__desc
              .h2.geoobject__title
                  =country.name
@@ -26,40 +26,6 @@
 
 
 
-table.table.table-striped
-  thead
-    tr
-        th Name
-        th Visitors
-        th Information
-        th History
-        th Economic
-        th Culture
-        th Image
-        th Actions
-
-  - countries.each do |country|
-    tr
-      td= country.name
-      td= country.visitors
-      td= country.information
-      td= country.history
-      td= country.economic
-      td= country.culture
-      td= image_tag(country.image_url(:min_table)) if country.image?
-      td.actions
-        = link_to(country, class: 'btn') do
-          i.fi-eye
-          |  Show
-        = link_to(edit_country_path(country), class: 'btn') do
-          i.fi-pencil
-          |  Edit
-        = link_to(country, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') do
-          i.fi-trash
-          |  Delete
-
-.paginator
-  = paginate(countries)
 
 br
 = link_to new_country_path, class: 'btn btn-primary' do

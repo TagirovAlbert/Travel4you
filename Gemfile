@@ -11,7 +11,6 @@ gem "coffee-rails"
 gem "foundation-icons-sass-rails"
 gem "foundation-rails"
 gem "jquery-rails"
-gem 'aws-sdk'
 gem "sass-rails", "~> 5.0.0"
 gem "skim", git: "https://github.com/jfirebaugh/skim"
 gem "therubyracer", platforms: :ruby
