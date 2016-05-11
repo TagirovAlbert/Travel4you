@@ -4,7 +4,23 @@ class CountriesController < ApplicationController
   expose(:country, attributes: :country_params)
   expose(:countries) { Country.page(params[:page]) }
 
+  def index
+    if params[:search].present?
+
+      @countries = Country.search(params[:search]).order("visitors DESC")
+    else
+      @countries = Country.all.order("visitors DESC")
+    end
+  end
+
+  def show
+     country.increment(:visitors)
+     country.save
+  end
+
   def create
+    coordinate = Coordinate.create(address: coordinate_params[:address])
+    country.coordinate = coordinate
     flash[:notice] = 'Country was successfully created.' if country.save
     respond_with(country)
   end
@@ -22,6 +38,12 @@ class CountriesController < ApplicationController
   private
 
   def country_params
-    params.require(:country).permit(:name, :visitors, :information, :history, :economic, {images: []}, :culture)
+   params.require(:country).permit(:name, :visitors, :information, :history,  :economic,  {images: []}, :culture)
   end
+
+  def coordinate_params
+    params.require(:country)[:coord]
+  end
+
+
 end

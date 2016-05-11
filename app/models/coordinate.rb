@@ -1,7 +1,6 @@
 class Coordinate < ActiveRecord::Base
-  has_one :cities
-  has_one :country
-  has_one :places
 
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
 end

@@ -22,6 +22,9 @@ gem "metamagic"
 gem "simple_form"
 gem "slim"
 
+#maps
+gem "geocoder"
+
 # all other gems
 gem "decent_decoration"
 gem "decent_exposure"

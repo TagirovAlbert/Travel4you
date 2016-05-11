@@ -1,18 +1,12 @@
 .row.container-alba
   .large-5.columns
-    .row.collapse.postfix-radius
-      .small-9.columns
-        input placeholder="Введите название города или места" type="text" /
-      .small-3.columns
-        a.button.postfix href="#"  Найти
+    = form_tag countries_path, :method => :get do
+     .row.collapse.postfix-radius
+       .small-9.columns
 
-  .large-7.columns
-    ul.horizontal.filter
-      li.filter_item.small-2.columns
-        a.round href="#"  Все
-      li.filter_item.small-2.columns
-        a.round href="#"  Маршруты
-      li.filter-item.small-2.columns
-        a.round href="#"  Фотоотчёты
-      li.filter_item.small-2.columns
-        a.round href="#"  Места
+          = text_field_tag :search
+       .small-3.columns
+         a.button.postfix
+          = button_to  "Найти"
+
+  = render "routes"

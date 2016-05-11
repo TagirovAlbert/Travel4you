@@ -1,5 +1,5 @@
 class CountryDecorator < ApplicationDecorator
-  delegate_all
+  delegate :name, :visitors, :information, :history, :address, :economic,  {images: []}, :culture
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:

@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20160421140251) do
   end
 
   create_table "coordinates", force: :cascade do |t|
-    t.decimal  "lat"
-    t.decimal  "lng"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,13 +39,13 @@ ActiveRecord::Schema.define(version: 20160421140251) do
     t.text     "history"
     t.text     "economic"
     t.text     "culture"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "country_id"
-    t.string   "images",      default: [],              array: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "coordinate_id"
+    t.string   "images",        default: [],              array: true
   end
 
-  add_index "countries", ["country_id"], name: "index_countries_on_country_id", using: :btree
+  add_index "countries", ["coordinate_id"], name: "index_countries_on_coordinate_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -110,6 +111,6 @@ ActiveRecord::Schema.define(version: 20160421140251) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "countries", "countries"
+  add_foreign_key "countries", "coordinates"
   add_foreign_key "identities", "users"
 end

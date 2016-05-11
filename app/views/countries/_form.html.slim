@@ -7,8 +7,10 @@
       = f.input :history
       = f.input :economic
       = f.input :culture
+      = f.simple_fields_for :coord do |coord_form|
+       = coord_form.input :address
+      end
       = f.file_field :images, multiple: true
-      = f.hidden_field :images_cache
     .form-actions
       = f.button :submit
       '  or
