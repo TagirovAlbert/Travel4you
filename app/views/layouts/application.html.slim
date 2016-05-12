@@ -11,9 +11,8 @@ html class="no-js" lang="en"
     = csrf_meta_tags
 
     = stylesheet_link_tag :application
-
     = javascript_include_tag "vendor/modernizr"
-
+    = javascript_include_tag '//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry'
     = javascript_tag "window.App = {}"
 
     == analytics_init if GA.tracker
@@ -30,5 +29,6 @@ html class="no-js" lang="en"
 
     javascript:
       App.currentUserData = #{{current_user.to_json}};
+
 
     = javascript_include_tag :application

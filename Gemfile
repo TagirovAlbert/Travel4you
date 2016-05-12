@@ -24,6 +24,7 @@ gem "slim"
 
 #maps
 gem "geocoder"
+gem "gmaps4rails"
 
 # all other gems
 gem "decent_decoration"

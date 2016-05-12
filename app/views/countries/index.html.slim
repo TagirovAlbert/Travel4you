@@ -5,7 +5,7 @@
    #masonryContainer
     - countries.each do |country|
       .li.feed__item.masonry-brick
-        .a.geoobject.href =link_to country
+        .a.geoobject.href =link_to country , 'data-no-turbolink' => true
            .geoobject__image
              = image_tag(country.images[0].url(:max_table)) if !country.images.empty?
            .geoobject__desc

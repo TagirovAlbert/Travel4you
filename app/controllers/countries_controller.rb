@@ -13,9 +13,18 @@ class CountriesController < ApplicationController
     end
   end
 
+  def test
+
+  end
+
   def show
      country.increment(:visitors)
      country.save
+     @hash = Gmaps4rails.build_markers(country.coordinate) do |coordinate, marker|
+       marker.lat coordinate.latitude
+       marker.lng coordinate.longitude
+     end
+     print(@hash)
   end
 
   def create
