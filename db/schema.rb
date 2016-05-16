@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421140251) do
+ActiveRecord::Schema.define(version: 20160516172128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20160421140251) do
   end
 
   create_table "coordinates", force: :cascade do |t|
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,9 +82,15 @@ ActiveRecord::Schema.define(version: 20160421140251) do
     t.string   "name"
     t.string   "description"
     t.integer  "visitors"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "coordinate_id"
+    t.string   "images",        default: [],              array: true
+    t.integer  "country_id"
   end
+
+  add_index "regions", ["coordinate_id"], name: "index_regions_on_coordinate_id", using: :btree
+  add_index "regions", ["country_id"], name: "index_regions_on_country_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -113,4 +119,6 @@ ActiveRecord::Schema.define(version: 20160421140251) do
 
   add_foreign_key "countries", "coordinates"
   add_foreign_key "identities", "users"
+  add_foreign_key "regions", "coordinates"
+  add_foreign_key "regions", "countries"
 end

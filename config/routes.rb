@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :countries do
     resources :images, :only => [:create, :destroy]
   end
-  resources :regions
+  resources :regions do
+    resources :images, :only => [:create, :destroy]
+  end
   match '/test', to: 'countries#test', via: 'get'
   match '/about', to: 'static_pages#about_us', via: 'get', :as => :about
 devise_for :users, controllers: { omniauth_callbacks: 'omniauth/omniauth_callbacks', registrations: 'registrations' }

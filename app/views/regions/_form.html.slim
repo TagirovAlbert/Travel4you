@@ -4,6 +4,11 @@
       = f.input :name
       = f.input :description
       = f.input :visitors
+      = f.association :country, collection: Country.all.order(:name), prompt: "Выберите страну"
+      = f.simple_fields_for :coord do |coord_form|
+       = coord_form.input :address
+      end
+      = f.file_field :images, multiple: true
 
     .form-actions
       = f.button :submit

@@ -1,3 +1,4 @@
+= javascript_include_tag 'cust_map'
 .show-item
   .well.region.form-horizontal
 
@@ -19,6 +20,27 @@
       .controls
         .input-xlarge.uneditable-input.integer.span7
           = region.visitors
+    .control-group
+      label.control-label
+        | Image
+      ul.clearing-thumbs.small-block-grid-4 data-clearing= ""
+        - region.images.each_with_index do |photo, index|
+          li
+            a href = photo.url
+              = image_tag(photo.url)
+              = link_to "Delete", region_image_path(region, index), :method => :delete, data: {confirm: "Are you sure you want to delete this image?"}
+
+  div style=("width: 800px;")
+    #map style=("width: 800px; height: 400px;")
+
+
+    h1 Добавить больше фотографий
+
+    = form_for region, url: region_images_path(region.id), method: :post do |f| # use customized url endpoint
+      .field
+        = f.file_field :images, multiple: true
+
+        = f.submit "Add More Images"
   .form-actions
     = link_to(edit_region_path(region), class: 'btn btn-primary') do
       i.fi-pencil

@@ -1,3 +1,4 @@
+= javascript_include_tag 'cust_map'
 .show-item
   .well.country.form-horizontal
 
@@ -50,7 +51,7 @@
   = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"
 
   div style=("width: 800px;")
-    #map style=("width: 800px; height: 400px;")
+   #map style=("width: 800px; height: 400px;")
 
 
 
@@ -69,16 +70,3 @@
     '  or
     = link_to 'Back', :back
 
-  javascript:
-      handler = Gmaps.build('Google');
-      handler.buildMap({
-              provider: {
-                disableDefaultUI: true},
-                internal: {id: 'map'}
-             },
-             function(){
-               markers = handler.addMarkers(=raw @hash.to_json %>);
-               handler.bounds.extendWith(markers);
-               handler.fitMapToBounds();
-             }
-       );

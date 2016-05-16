@@ -11,6 +11,7 @@
 #= require skim
 #= require underscore
 #= require gmaps/google
+#= require maps
 #= require markerclusterer_packed
 #= require_tree ../templates
 #= require_tree .

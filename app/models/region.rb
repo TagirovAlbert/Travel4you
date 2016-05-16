@@ -1,5 +1,6 @@
 class Region < ActiveRecord::Base
   belongs_to :country
   has_many :city
-  has_one :coordinate
+  belongs_to :coordinate
+  mount_uploaders :images, ImagesUploader
 end
