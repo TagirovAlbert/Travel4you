@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160531174034) do
     t.string   "name"
     t.string   "description"
     t.integer  "visitors",      default: 0
+
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "coordinate_id"
