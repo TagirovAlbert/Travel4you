@@ -19,10 +19,11 @@ class CitiesController < ApplicationController
   end
 
   def create
+    coordinate = Coordinate.create(address: coordinate_params[:address])
+    print(coordinate)
     country = Country.find_by_id(city_params[:country_id])
     region = Region.find_by_id(city_params[:region_id])
-    coordinate = Coordinate.create(address: coordinate_params[:address])
-    city.coordinate = Coordinate.create(address: coordinate_params[:address])
+    city.coordinate = coordinate
     city.country = country
     city.region = region
     flash[:notice] = 'City was successfully created.' if city.save

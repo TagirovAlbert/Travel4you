@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-= javascript_include_tag 'show'
-=======
-= javascript_include_tag 'cust_map'
->>>>>>> 249e145eb45140456a3c504f889feefb1de43781
 .show-item
   .well.region.form-horizontal
 
     .control-group
       label.control-label
         | Name
+        = @hash
       .controls
         .input-xlarge.uneditable-input.string.span7
           = region.name
