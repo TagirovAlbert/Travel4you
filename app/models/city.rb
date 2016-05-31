@@ -1,7 +1,9 @@
 require 'carrierwave/orm/activerecord'
 class City < ActiveRecord::Base
+  belongs_to :region
   belongs_to :country
-  has_one :coordinate
+  belongs_to :coordinate
   has_many :photo_report
-  mount_uploader :image, ImageUploader
+  mount_uploaders :images, ImagesUploader
+
 end

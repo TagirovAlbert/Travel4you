@@ -5,26 +5,26 @@ class CountriesController < ApplicationController
   expose(:countries) { Country.page(params[:page]) }
 
   def index
-    if params[:search].present?
 
-      @countries = Country.search(params[:search]).order("visitors DESC")
-    else
       @countries = Country.all.order("visitors DESC")
-    end
-  end
+   end
 
   def test
-
+    @coordinate = Country.first.coordinate
+    @hash = Gmaps4rails.build_markers(@coordinate) do |coordinate, marker|
+      marker.lat coordinate.latitude
+      marker.lng coordinate.longitude
+    end
   end
 
   def show
      country.increment(:visitors)
      country.save
-     @hash = Gmaps4rails.build_markers(country.coordinate) do |coordinate, marker|
+     @coordinate = country.coordinate
+     @hash = Gmaps4rails.build_markers(@coordinate) do |coordinate, marker|
        marker.lat coordinate.latitude
        marker.lng coordinate.longitude
      end
-     print(@hash)
   end
 
   def create
@@ -47,7 +47,7 @@ class CountriesController < ApplicationController
   private
 
   def country_params
-   params.require(:country).permit(:name, :visitors, :information, :history,  :economic,  {images: []}, :culture)
+   params.require(:country).permit(:name,  :information, :history,  :economic,  {images: []}, :culture)
   end
 
   def coordinate_params

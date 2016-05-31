@@ -3,7 +3,7 @@ class CreateRegions < ActiveRecord::Migration
     create_table :regions do |t|
       t.string :name
       t.string :description
-      t.integer :visitors
+      t.integer :visitors, :default => 0
 
       t.timestamps null: false
     end

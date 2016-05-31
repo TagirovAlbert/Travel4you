@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  resources :photo_reports
-  resources :places
-  resources :cities
-  resources :countries do
+  resources :photo_reports do
     resources :images, :only => [:create, :destroy]
   end
+  resources :places
+  resources :cities do
+    collection do
+      get 'get_regions', to: "cities#get_regions"
+    end
+  end
+  resources :countries
   resources :regions
   match '/test', to: 'countries#test', via: 'get'
   match '/about', to: 'static_pages#about_us', via: 'get', :as => :about

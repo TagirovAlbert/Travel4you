@@ -1,12 +1,12 @@
 .show-item
   .well.country.form-horizontal
-
     .control-group
       label.control-label
         | Name
       .controls
         .input-xlarge.uneditable-input.string.span7
           = country.name
+          = @hash
     .control-group
       label.control-label
         | Visitors
@@ -45,23 +45,23 @@
          li
           a href = photo.url
              = image_tag(photo.url)
-             = link_to "Delete", country_image_path(country, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }
 
-  = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"
+  = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=2&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"
+
+  javascript:
+    handler = Gmaps.build('Google');
+    handler.buildMap({provider: {}, internal: {id: 'map'}}, function () {
+      marker = handler.addMarker(
+      #{{@hash.to_json}});
+    handler.bounds.extendWith(marker);
+    handler.fitMapToBounds();
+    })
+    ;
 
   div style=("width: 800px;")
-    #map style=("width: 800px; height: 400px;")
+   #map style=("width: 800px; height: 400px;")
 
 
-
-
-  h1 Добавить больше фотографий
-
-  = form_for country, url: country_images_path(country.id), method: :post do |f| # use customized url endpoint
-    .field
-      = f.file_field :images, multiple: true
-
-    = f.submit "Add More Images"
   .form-actions
     = link_to(edit_country_path(country), class: 'btn btn-primary') do
       i.fi-pencil
@@ -69,16 +69,4 @@
     '  or
     = link_to 'Back', :back
 
-  javascript:
-      handler = Gmaps.build('Google');
-      handler.buildMap({
-              provider: {
-                disableDefaultUI: true},
-                internal: {id: 'map'}
-             },
-             function(){
-               markers = handler.addMarkers(=raw @hash.to_json %>);
-               handler.bounds.extendWith(markers);
-               handler.fitMapToBounds();
-             }
-       );
+

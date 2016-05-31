@@ -3,7 +3,9 @@
     .form-inputs
       = f.input :name
       = f.input :description
-      = f.input :visitors
+      = f.simple_fields_for :coord do |coord_form|
+        = coord_form.input :address
+        end
 
     .form-actions
       = f.button :submit

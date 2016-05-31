@@ -3,7 +3,7 @@
 .row
   .medium-12.columns
    #masonryContainer
-    - countries.each do |country|
+    - @countries.each do |country|
       .li.feed__item.masonry-brick
         .a.geoobject.href =link_to country , 'data-no-turbolink' => true
            .geoobject__image

@@ -19,6 +19,15 @@
       .controls
         .input-xlarge.uneditable-input.integer.span7
           = photo_report.visitors
+
+  h1 Добавить больше фотографий
+
+  = form_for photo_report, url: photo_reports_images_path(photo_report.id), method: :post do |f| # use customized url endpoint
+      .field
+        = f.file_field :images, multiple: true
+
+        = f.submit "Add More Images"
+
   .form-actions
     = link_to(edit_photo_report_path(photo_report), class: 'btn btn-primary') do
       i.fi-pencil

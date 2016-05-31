@@ -3,7 +3,7 @@ class CreatePhotoReports < ActiveRecord::Migration
     create_table :photo_reports do |t|
       t.string :name
       t.text :description
-      t.integer :visitors
+      t.integer :visitors,  :default => 0
 
       t.timestamps null: false
     end

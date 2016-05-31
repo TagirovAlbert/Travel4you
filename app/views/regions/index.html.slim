@@ -5,12 +5,14 @@ table.table.table-striped
         th Description
         th Visitors
         th Actions
+        th Country
 
   - regions.each do |region|
     tr
       td= region.name
       td= region.description
       td= region.visitors
+      td= region.country.name
       td.actions
         = link_to(region, class: 'btn') do
           i.fi-eye

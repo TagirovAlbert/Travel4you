@@ -2,7 +2,7 @@ class CreateCountries < ActiveRecord::Migration
   def change
     create_table :countries do |t|
       t.string :name
-      t.integer :visitors
+      t.integer :visitors, :default => 0
       t.text :information
       t.text :history
       t.text :economic

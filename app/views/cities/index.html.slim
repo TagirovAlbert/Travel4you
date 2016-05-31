@@ -3,22 +3,23 @@
 .row
   .medium-12.columns
     #masonryContainer
-      - cities.each do |city|
+      - @cities.each do |city|
         .li.feed__item.masonry-brick
-          .a.geoobject.href = link_to cities
+          .a.geoobject.href = link_to country, 'data-no-turbolink' => true
           .geoobject__image
-            = image_tag(city.image_url(:min_table)) if city.image?
+            = image_tag(city.images[0].url(:max_table)) if !city.images.empty?
           .geoobject__desc
             .h2.geoobject__title
               = city.name
               span.geoobject__places-counter = city.visitors
-            .geoobject__place-country = "Пример"
+            .geoobject__place-country = city.country
             .feed__item-activities
               br
               .likes-comments__stats
                 .feed__view-count
                   i.fi-eye
                     = city.visitors
+
 
 
 table.table.table-striped

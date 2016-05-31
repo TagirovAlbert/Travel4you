@@ -22,6 +22,7 @@ class PhotoReportsController < ApplicationController
   private
 
   def photo_report_params
-    params.require(:photo_report).permit(:name, :description, :visitors)
+    params.require(:photo_report).permit(:name, :description,{images: []})
   end
+
 end
