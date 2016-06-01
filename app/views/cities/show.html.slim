@@ -21,9 +21,11 @@
       .controls
         .input-xlarge.uneditable-input.integer.span7
           = city.visitors
-  .form-actions
-    = link_to(edit_city_path(city), class: 'btn btn-primary') do
-      i.fi-pencil
-      | Edit
-    '  or
-    = link_to 'Back', :back
+    .control-group
+      label.control-label
+        | Image
+      ul.clearing-thumbs.small-block-grid-4 data-clearing= ""
+        - city.images.each_with_index do |photo, index|
+          li
+            a href = photo.url
+              = image_tag(photo.url)

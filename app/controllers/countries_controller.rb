@@ -25,6 +25,9 @@ class CountriesController < ApplicationController
        marker.lat coordinate.latitude
        marker.lng coordinate.longitude
      end
+     @regions = country.region.order("name DESC")
+
+     @cities = country.city.order("visitors DESC").limit(10)
   end
 
   def create
