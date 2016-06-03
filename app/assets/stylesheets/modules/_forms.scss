@@ -102,6 +102,20 @@ legend {
   text-decoration: none;
 }
 
+.geo-object__type{
+  font-size: 10px;
+  color: #999999;
+  text-transform: uppercase;
+  margin: -15px 0 0 0;
+}
+.geo-object__title_country{
+  font-size: 23px;
+  padding: 0;
+  padding-top: 3px;
+  margin-right: 490px;
+  color: #333333;
+}
+
 .geoobject__image {
   display: block;
   margin: 0;
@@ -147,9 +161,10 @@ i.fi-eye{
   color: #999999;
   font-size: 12px;
 }
-.feed__item-activities {
-  margin-top: -60px;
-  margin-left: 20px;
+.feed__item-visitors {
+  margin-top: -40px;
+  margin-left: -110px;
+  margin-bottom: 13px;
   width: 265px;
 }
 .likes-comments__stats {
@@ -169,6 +184,25 @@ i.fi-eye{
   margin-left: 10px;
   margin-bottom: 13px;
   width: 265px;
+}
+
+
+.geo-object__breadcrumbs{
+  line-height: 1em;
+}
+
+.breadcrumbs, .breadcrumbs_head {
+  margin: 0;
+  /* padding: 0; */
+  list-style: none;
+  width: 100%;
+  position: relative;
+  zoom: 1;
+  display: block;
+
+  margin-bottom: -10px;
+  margin-top: 10px;
+
 }
 
 .masonry-brick { width: 300px; margin: 10px; float: left;  }

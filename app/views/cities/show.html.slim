@@ -1,31 +1,39 @@
-.show-item
-  .well.city.form-horizontal
+.container-alba.row
+  .large-12.columns style = "margin-top: 10px"
+    h2.geo-object__title_country
+      = city.name
+      .feed__item-visitors
+        .likes-comments__stats
+          .feed__view-count
+            i.fi-eye
+              =city.visitors
+      .geo-object__type style = "margin-top:40px;" Регион
+      ul.geo-object__breadcrumbs.breadcrumbs
+        li.breadcrumbs__item
+          a href = "#" Планета
+        li.breadcrumbs__item
+          a href = country_path(city.country_id) =city.country.name
+        li.breadcrumbs__item
+          a href = country_region_path(city.country_id, city.region.id) = city.region.name
+        li.breadcrumbs__item
+          a href = country_region_city_path(city.country_id, city.region_id,city.id) = city.name
+    hr
+  .large-9.push-3.columns
+    = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=5&markers=#{city.coordinate.latitude}%2C#{city.coordinate.longitude}"
 
-    .control-group
-      label.control-label
-        | Name
-        = @hash
 
-      .controls
-        .input-xlarge.uneditable-input.string.span7
-          = city.name
-    .control-group
-      label.control-label
-        | Description
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = city.description
-    .control-group
-      label.control-label
-        | Visitors
-      .controls
-        .input-xlarge.uneditable-input.integer.span7
-          = city.visitors
-    .control-group
-      label.control-label
-        | Image
-      ul.clearing-thumbs.small-block-grid-4 data-clearing= ""
-        - city.images.each_with_index do |photo, index|
-          li
-            a href = photo.url
-              = image_tag(photo.url)
+
+    div
+      h4 style = "margin-top: 20px; margin-bottom: -15px;color: #595959 " Описание
+      hr
+      p = city.description
+    .orbit aria-label=("Favorite Space Pictures") data-orbit="" role="region"
+      - city.images.each_with_index do |photo, index|
+        li.orbit-slide
+          = image_tag(photo.url)
+
+
+  /! This is source ordered to be pulled to the left on larger screens
+  .large-3.pull-9.columns
+    h5 Места
+    ul.side-nav

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         resources :photo_reports do
           resources :images, :only => [:create, :destroy]
         end
-
+        resources :places
       end
     end
   end

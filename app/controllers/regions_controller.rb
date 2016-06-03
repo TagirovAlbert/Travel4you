@@ -26,6 +26,7 @@ class RegionsController < ApplicationController
       marker.lat coordinate.latitude
       marker.lng coordinate.longitude
     end
+    @cities = region.city.order("name DESC")
   end
 
   def update

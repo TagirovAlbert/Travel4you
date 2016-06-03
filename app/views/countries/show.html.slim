@@ -1,72 +1,49 @@
 = javascript_include_tag 'cust_map'
-.show-item
-  .well.country.form-horizontal
-    .control-group
-      label.control-label
-        | Name
-      .controls
-        .input-xlarge.uneditable-input.string.span7
-          = country.name
-          = @hash
-    .control-group
-      label.control-label
-        | Visitors
-      .controls
-        .input-xlarge.uneditable-input.integer.span7
-          = country.visitors
-    .control-group
-      label.control-label
-        | Information
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = country.information
-    .control-group
-      label.control-label
-        | History
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = country.history
-    .control-group
-      label.control-label
-        | Economic
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = country.economic
-    .control-group
-      label.control-label
-        | Culture
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = country.culture
-    .control-group
-       label.control-label
-         | Image
-       ul.clearing-thumbs.small-block-grid-4 data-clearing= ""
-        - country.images.each_with_index do |photo, index |
-         li
-          a href = photo.url
-             = image_tag(photo.url)
-
-  = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=2&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"
-
-  - @regions.each do |region|
-    = link_to(country_region_path(region.country_id, region.id)) do
-         = region.name
-  - @cities.each do |city|
-    = link_to(country_region_city_path(city.country_id, city.region_id,city.id)) do
-         = city.name
-
-  javascript:
+.container-alba.row
+  .large-12.columns style = "margin-top: 10px; "
+    h2.geo-object__title_country
+     = country.name
+     .feed__item-visitors
+        .likes-comments__stats
+          .feed__view-count
+            i.fi-eye
+              = country.visitors
+     .geo-object__type style = "margin-top:40px;" Страна
+    hr
+  .large-9.push-3.columns
+    = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=2&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"
 
 
-  div style=("width: 800px;")
-   #map style=("width: 800px; height: 400px;")
+    .orbit aria-label=("Favorite Space Pictures") data-orbit="" role="region"
+     - country.images.each_with_index do |photo, index|
+         li.orbit-slide
+            = image_tag(photo.url)
+
+    a.small.button onclick="document.getElementById('info').innerHTML='#{country.information}'"
+      | Информация
+    a.small.button onclick="document.getElementById('info').innerHTML='#{country.culture}'"
+      | Культура
+    a.small.button onclick="document.getElementById('info').innerHTML='#{country.history}'"
+      | История
+    a.small.button onclick="document.getElementById('info').innerHTML='#{country.economic}'"
+      | Экономика
+    div
+      p#info
 
 
-  .form-actions
-    = link_to(edit_country_path(country), class: 'btn btn-primary') do
-      i.fi-pencil
-      | Edit
-    '  or
-    = link_to 'Back', :back
+  /! This is source ordered to be pulled to the left on larger screens
+  .large-3.pull-9.columns
+    h5 Регионы
+    ul.side-nav
+     - @regions.each do |region|
+       li = link_to(country_region_path(region.country_id, region.id)) do
+          = region.name
+    h5 Посещаемые города
+    ul.side-nav
+      - @cities.each do |city|
+       li = link_to(country_region_city_path(city.country_id, city.region_id,city.id)) do
+          = city.name
+
+
+
 

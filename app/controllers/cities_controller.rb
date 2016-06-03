@@ -16,6 +16,7 @@ class CitiesController < ApplicationController
       marker.lat coordinate.latitude
       marker.lng coordinate.longitude
     end
+    @places = city.places.order("name DESC")
   end
 
   def create
