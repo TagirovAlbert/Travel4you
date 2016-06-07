@@ -1,5 +1,7 @@
 class Place < ActiveRecord::Base
-  has_one :coordinate
+  belongs_to :coordinate
   belongs_to :city
   mount_uploaders :images, ImagesUploader
+
+  attr_accessor :country_id, :region_id
 end

@@ -116,6 +116,19 @@ legend {
   color: #333333;
 }
 
+.geo-object__title {
+  font-size: 23px;
+  padding: 0;
+  padding-top: 3px;
+  margin-right: 490px;
+  color: #333333;
+
+  h2 {
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 1.3em;
+  }
+}
 .geoobject__image {
   display: block;
   margin: 0;
@@ -164,6 +177,13 @@ i.fi-eye{
 .feed__item-visitors {
   margin-top: -40px;
   margin-left: -110px;
+  margin-bottom: 13px;
+  width: 265px;
+}
+
+.feed__item-visitors-reg{
+  margin-top: -40px;
+  margin-left: 0px;
   margin-bottom: 13px;
   width: 265px;
 }

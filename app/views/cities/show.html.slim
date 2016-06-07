@@ -1,14 +1,14 @@
 .container-alba.row
   .large-12.columns style = "margin-top: 10px"
-    h2.geo-object__title_country
+    h2.geo-object__title
       = city.name
       .feed__item-visitors
-        .likes-comments__stats
-          .feed__view-count
-            i.fi-eye
-              =city.visitors
-      .geo-object__type style = "margin-top:40px;" Регион
-      ul.geo-object__breadcrumbs.breadcrumbs
+       .likes-comments__stats
+           .feed__view-count
+             i.fi-eye
+               =city.visitors
+      .geo-object__type style = "margin-top:40px;" Город
+    ul.geo-object__breadcrumbs.breadcrumbs
         li.breadcrumbs__item
           a href = "#" Планета
         li.breadcrumbs__item
@@ -37,3 +37,6 @@
   .large-3.pull-9.columns
     h5 Места
     ul.side-nav
+      - @places.each do |place|
+        li = link_to(country_region_city_place_path(place.city.country_id, place.city.region_id,place.city_id, place.id)) do
+          = place.name

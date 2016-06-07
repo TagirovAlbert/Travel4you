@@ -1,15 +1,15 @@
 = javascript_include_tag 'cust_map'
 .container-alba.row
   .large-12.columns style = "margin-top: 10px"
-    h2.geo-object__title_country
+    h2.geo-object__title
       = region.name
-      .feed__item-visitors
-        .likes-comments__stats
+      .feed__item-visitors-reg
+       .likes-comments__stats
           .feed__view-count
             i.fi-eye
               = region.visitors
       .geo-object__type style = "margin-top:40px;" Регион
-      ul.geo-object__breadcrumbs.breadcrumbs
+    ul.geo-object__breadcrumbs.breadcrumbs
         li.breadcrumbs__item
           a href = "#" Планета
         li.breadcrumbs__item

@@ -1,16 +1,16 @@
 = javascript_include_tag 'cust_map'
 .container-alba.row
   .large-12.columns style = "margin-top: 10px; "
-    h2.geo-object__title_country
-     = country.name
-     .feed__item-visitors
+    h2.geo-object__title
+       = country.name
+       .feed__item-visitors
         .likes-comments__stats
           .feed__view-count
             i.fi-eye
               = country.visitors
-     .geo-object__type style = "margin-top:40px;" Страна
+       .geo-object__type style = "margin-top:40px;" Страна
     hr
-  .large-9.push-3.columns
+  .large-9.push-3.columns.map_alba
     = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=2&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"
 
 

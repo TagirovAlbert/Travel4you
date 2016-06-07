@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :countries, :only => [:show] do
-    resources :regions, :only => [:show] do
-      resources :cities, :only => [:show] do
-        resources :photo_reports do
-          resources :images, :only => [:create, :destroy]
-        end
-        resources :places, :only => [:create, :destroy, :show]
+  resources :photo_reports do
+    resources :images, :only => [:create, :destroy, :index]
+  end
+  resources :places, :only => [:new,:create, :index]
+  resources :countries, :only => [:show, :index] do
+    resources :regions do
+      resources :cities do
+        resources :places, :only => [:show]
       end
     end
   end

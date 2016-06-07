@@ -25,4 +25,6 @@ class PhotoReportsController < ApplicationController
     params.require(:photo_report).permit(:name, :description,{images: []})
   end
 
+
+
 end

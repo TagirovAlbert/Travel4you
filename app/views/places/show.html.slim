@@ -1,21 +1,37 @@
-.show-item
-  .well.place.form-horizontal
+.container-alba.row
+  .large-12.columns style = "margin-top: 10px"
+    h2.geo-object__title
+      = place.name
+      .feed__item-visitors
+       .likes-comments__stats
+           .feed__view-count
+             i.fi-eye
+               =place.visitors
+      .geo-object__type style = "margin-top:40px;" Место
+    ul.geo-object__breadcrumbs.breadcrumbs
+        li.breadcrumbs__item
+          a href = "#" Планета
+        li.breadcrumbs__item
+          a href = country_path(place.city.country_id) = place.city.country.name
+        li.breadcrumbs__item
+          a href = country_region_path(place.city.country_id, place.city.region.id) = place.city.region.name
+        li.breadcrumbs__item
+          a href = country_region_city_path(place.city.country_id, place.city.region_id, place.city_id) = place.city.name
 
-    .control-group
-      label.control-label
-        | Name
-      .controls
-        .input-xlarge.uneditable-input.string.span7
-          = place.name
-    .control-group
-      label.control-label
-        | Description
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = place.description
-  .form-actions
-    = link_to(edit_place_path(place), class: 'btn btn-primary') do
-      i.fi-pencil
-      | Edit
-    '  or
-    = link_to 'Back', :back
+    hr
+    = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=5&markers=#{place.coordinate.latitude}%2C#{place.coordinate.longitude}"
+
+
+
+    div
+      h4 style = "margin-top: 20px; margin-bottom: -15px;color: #595959 " Описание
+      hr
+      p = place.description
+    .orbit aria-label=("Favorite Space Pictures") data-orbit="" role="region"
+      - place.images.each_with_index do |photo, index|
+        li.orbit-slide
+          = image_tag(photo.url)
+
+
+  /! This is source ordered to be pulled to the left on larger screens
+
