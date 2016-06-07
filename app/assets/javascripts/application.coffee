@@ -9,6 +9,7 @@
 #= require foundation
 #= require current_user
 #= require cities
+#= require photo_reports
 #= require skim
 #= require underscore
 #= require gmaps/google

@@ -1,5 +1,7 @@
 class PhotoReport < ActiveRecord::Base
-  has_many :paragraph
+  belongs_to :country
   belongs_to :city
+  mount_uploaders :images, ImagesUploader
 
+  attr_accessor :country_id, :region_id
 end

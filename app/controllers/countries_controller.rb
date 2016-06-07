@@ -26,7 +26,7 @@ class CountriesController < ApplicationController
        marker.lng coordinate.longitude
      end
      @regions = country.region.order("name DESC")
-
+     @photo_reports = country.photo_reports.order("created_at DESC").limit(3)
      @cities = country.city.order("visitors DESC").limit(10)
   end
 

@@ -1,28 +1,26 @@
-.show-item
-  .well.photo_report.form-horizontal
+.container-alba.row
+  .large-12.columns style = "margin-top: 10px"
+    h2.geo-object__title
+      = photo_report.name
+      .feed__item-visitors
+        .likes-comments__stats
+          .feed__view-count
+            i.fi-eye
+              = photo_report.visitors
+      .geo-object__type style = "margin-top:40px;" Фотоотчёт
 
-    .control-group
-      label.control-label
-        | Name
-      .controls
-        .input-xlarge.uneditable-input.string.span7
-          = photo_report.name
-    .control-group
-      label.control-label
-        | Description
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = photo_report.description
-    .control-group
-      label.control-label
-        | Visitors
-      .controls
-        .input-xlarge.uneditable-input.integer.span7
-          = photo_report.visitors
+    hr
 
-  h1 Добавить больше фотографий
+    .orbit aria-label=("Favorite Space Pictures") data-orbit="" role="region"
+      - photo_report.images.each_with_index do |photo, index|
+        li.orbit-slide
+          = image_tag(photo.url)
+    div
+      h4 style = "margin-top: 20px; margin-bottom: -15px;color: #595959 " Описание
+      hr
+      p = photo_report.description
 
-  = form_for photo_report, url: photo_reports_images_path(photo_report.id), method: :post do |f| # use customized url endpoint
+  = form_for photo_report, url: photo_report_images_path(photo_report.id), method: :post do |f| # use customized url endpoint
       .field
         = f.file_field :images, multiple: true
 

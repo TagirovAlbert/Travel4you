@@ -5,8 +5,17 @@ class PhotoReportsController < ApplicationController
   expose(:photo_reports) { PhotoReport.page(params[:page]) }
 
   def create
+    city = City.find_by_id(photo_report_params[:city_id])
+    country = city.country
+    photo_report.city = city
+    photo_report.country = country
     flash[:notice] = 'Photo report was successfully created.' if photo_report.save
     respond_with(photo_report)
+  end
+
+  def show
+    photo_report.increment(:visitors)
+    photo_report.save
   end
 
   def update
@@ -22,7 +31,7 @@ class PhotoReportsController < ApplicationController
   private
 
   def photo_report_params
-    params.require(:photo_report).permit(:name, :description,{images: []})
+    params.require(:photo_report).permit(:name, :description, :city_id,{images: []})
   end
 
 
