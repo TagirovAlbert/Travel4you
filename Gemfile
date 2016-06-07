@@ -32,6 +32,7 @@ gem "decent_exposure"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem "devise"
+gem 'activeadmin', github: 'activeadmin'
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
