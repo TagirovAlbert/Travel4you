@@ -2,15 +2,14 @@
   .large-12.columns style = "margin-top: 10px"
     h2.geo-object__title
       = place.name
-      .feed__item-visitors
-       .likes-comments__stats
+      .likes-comments__stats
            .feed__view-count
              i.fi-eye
                =place.visitors
-      .geo-object__type style = "margin-top:40px;" Место
+      .geo-object__type style = "margin-top:5px;" Место
     ul.geo-object__breadcrumbs.breadcrumbs
         li.breadcrumbs__item
-          a href = "#" Планета
+          a href = countries_path Планета
         li.breadcrumbs__item
           a href = country_path(place.city.country_id) = place.city.country.name
         li.breadcrumbs__item

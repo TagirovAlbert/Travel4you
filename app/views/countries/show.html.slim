@@ -9,20 +9,34 @@
             i.fi-eye
               = country.visitors
        .geo-object__type style = "margin-top:40px;" Страна
+
+    ul.geo-object__breadcrumbs.breadcrumbs
+      li.breadcrumbs__item
+        a href = countries_path Планета
     hr
   .large-9.push-3.columns.map_alba
     = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=2&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"
 
     .main-page-widjet
-      .main-page-widjet__header Фотоотчёты
-      hr
+      h5 style = "margin-left: 10px;margin-top: 20px; margin-bottom: -15px;color: #595959 " Фотоотчёты
+      hr style = "margin:1.25rem 0 0.1875rem"
       .main-page-widjet__container.photo-slider__photos
         .photo-slider__group-container
           - @photo_reports.each do  |report|
-            .photo-slider__photo = link_to report
-              = image_tag (report.images[0].url(:max_table)) if !report.images.empty?
-              .photo-slider__desc
-                 h2.desc_title = report.name
+            .li.feed__item.masonry-brick-photo
+              .a.geoobject.href = link_to photo_report_path(report.id)
+               .geoobject__image
+                = image_tag(report.images[0].url(:max_table)) if !report.images.empty?
+               .geoobject__desc
+                 .h2.geoobject__title
+                   = report.name
+                 .geoobject__place-country
+                   | опубликовано
+                   span style = "color: #06b0f9;"   Альберт
+
+
+
+
 
 
 

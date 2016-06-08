@@ -11,15 +11,20 @@
 
     hr
 
+    div
+      p = photo_report.description
+
     .orbit aria-label=("Favorite Space Pictures") data-orbit="" role="region"
       - photo_report.images.each_with_index do |photo, index|
         li.orbit-slide
           = image_tag(photo.url)
-    div
-      h4 style = "margin-top: 20px; margin-bottom: -15px;color: #595959 " Описание
-      hr
-      p = photo_report.description
+    hr
 
+    div style = "text-align: center"
+     p Теги:
+     a href = country_path(photo_report.city.country_id) = photo_report.city.country.name + ", "
+     a href = country_region_path(photo_report.city.country_id, photo_report.city.region.id) = photo_report.city.region.name + ", "
+     a href = country_region_city_path(photo_report.city.country_id, photo_report.city.region_id, photo_report.city_id) = photo_report.city.name + "."
   = form_for photo_report, url: photo_report_images_path(photo_report.id), method: :post do |f| # use customized url endpoint
       .field
         = f.file_field :images, multiple: true

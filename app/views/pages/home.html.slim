@@ -28,17 +28,17 @@ row
     #masonryContainer
       - @countries.each do |country|
         .li.feed__item.masonry-brick
-          .a.geoobject.href =link_to country
-          .geoobject__image
-            = image_tag(country.images[0].url(:max_table)) if !country.images.empty?
-          .geoobject__desc
-            .h2.geoobject__title
-              =country.name
-              span.geoobject__places-counter =country.visitors
-            .geoobject__place-country  = "Пример"
-            .feed__item-activities
-              br
-              .likes-comments__stats
-                .feed__view-count
-                  i.fi-eye
-                    =country.visitors
+          .a.geoobject.href = link_to country_path(country.id), 'data-no-turbolink' => true
+           .geoobject__image
+             = image_tag(country.images[0].url(:max_table)) if !country.images.empty?
+           .geoobject__desc
+             .h2.geoobject__title
+               = country.name
+               span.geoobject__places-counter = country.visitors
+             .geoobject__place-country = "Пример"
+             .feed__item-activities
+               br
+               .likes-comments__stats
+                 .feed__view-count
+                   i.fi-eye
+                     = country.visitors

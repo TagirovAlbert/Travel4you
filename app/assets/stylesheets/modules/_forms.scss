@@ -101,6 +101,16 @@ legend {
   display: block;
   text-decoration: none;
 }
+.geoobject-photo {
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: block;
+  text-decoration: none;
+}
+
 
 .geo-object__type{
   font-size: 10px;
@@ -226,4 +236,6 @@ i.fi-eye{
 }
 
 .masonry-brick { width: 300px; margin: 10px; float: left;  }
+.masonry-brick-photo { width: 30%; margin: 10px; float: left;  }
+
 #masonryContainer { width: 0 auto; }

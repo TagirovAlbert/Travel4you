@@ -15,57 +15,96 @@
 }
 
 .main-page-widjet__container {
-
-
-}
-.photo-slider__photos {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  width: 100%;
-  height: 230px;
-  overflow: hidden;
-  position: relative;
-}
-.photo-slider__group-container {
-  position: absolute;
-  top: 0;
-  left: -1%;
-  width: 101%;
-  background: white;
-}
-
-.photo-slider__photo {
-  width: 32.33333%;
-  max-width: 32.33333%;
-
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border: none;
-    border-radius: 5px 5px 0 0;
-
-}}
-
-.photo-slider__desc {
-  width: 100%;
-  background: #333333;
-  color: white;
-  padding: 7px 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 0 0 5px 5px;
-
-  .desc__title {
-    font-size: 14px;
-    color: white;
+  .photo-slider__photos {
     margin: 0;
-    font-weight: normal;
-    white-space: nowrap;
-    max-width: 98%;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    height: 225px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    position: relative;
+
+    .photo-slider__group-container {
+      position: absolute;
+      top: 0;
+      left: -1%;
+      width: 101%;
+      background: white;
+
+
+      .photo-slider__photo {
+        width: 32.33333%;
+        max-width: 32.33333%;
+
+        display: block;
+        position: relative;
+        overflow: hidden;
+        max-width: 19%;
+        width: 19%;
+        height: auto;
+        float: left;
+        text-decoration: none;
+        margin-left: 1%;
+        margin-bottom: 30px;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          border: none;
+          border-radius: 5px 5px 0 0;
+
+        }
+
+        .photo-slider__desc {
+          width: 100%;
+          background: #333333;
+          color: white;
+          padding: 7px 10px;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          border-radius: 0 0 5px 5px;
+
+          .desc__title {
+            font-size: 14px;
+            color: white;
+            margin: 0;
+            font-weight: normal;
+            white-space: nowrap;
+            max-width: 98%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .desc__created {
+            font-size: 12px;
+            color: #dddddd;
+            white-space: nowrap;
+
+
+
+
+
+          }
+        }
+
+      }
+    }
+
   }
 }
+
+
+.user-name {
+  color: #06b0f9;
+  text-decoration: none;
+  max-width: 98%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+
