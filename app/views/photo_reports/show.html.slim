@@ -24,7 +24,7 @@
      p Теги:
      a href = country_path(photo_report.city.country_id) = photo_report.city.country.name + ", "
      a href = country_region_path(photo_report.city.country_id, photo_report.city.region.id) = photo_report.city.region.name + ", "
-     a href = country_region_city_path(photo_report.city.country_id, photo_report.city.region_id, photo_report.city_id) = photo_report.city.name + "."
+     a href = country_region_city_path(photo_report.city.country_id, photo_report.city.region_id, photo_report.city_id) = photo_report.city.name + ""
   = form_for photo_report, url: photo_report_images_path(photo_report.id), method: :post do |f| # use customized url endpoint
       .field
         = f.file_field :images, multiple: true

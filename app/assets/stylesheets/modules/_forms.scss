@@ -180,6 +180,13 @@ i.fi-eye{
   font-size: small;
 }
 
+i.fi-photo{
+  font-size: small;
+}
+
+i.fi-torso{
+  font-size: small;
+}
 .geoobject__place-country {
   color: #999999;
   font-size: 12px;
@@ -200,6 +207,11 @@ i.fi-eye{
 .likes-comments__stats {
   float: right;
 }
+
+.view-comments__stats {
+  float: right;
+  margin-top: -20px
+}
 .feed__view-count {
   color: #999;
   font-size: 12px;
@@ -216,6 +228,11 @@ i.fi-eye{
   width: 265px;
 }
 
+.feed__item-activities-sec{
+  margin-top: -30px;
+  margin-left: 20px;
+  width: 265px;
+}
 
 .geo-object__breadcrumbs{
   line-height: 1em;

@@ -1,4 +1,4 @@
-.row.container-alba
+.row
   .large-5.columns
     = form_tag countries_path, :method => :get do
      .row.collapse.postfix-radius
@@ -6,7 +6,6 @@
 
           = text_field_tag :search
        .small-3.columns
-         a.button.postfix
-          = link_to  "Найти"
+          = link_to  "Найти", :class => "button postfix"
 
   = render "routes"

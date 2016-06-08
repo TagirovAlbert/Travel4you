@@ -5,26 +5,23 @@
     #masonryContainer
       - @cities.each do |city|
         .li.feed__item.masonry-brick
-          .a.geoobject.href
-             =link_to country_region_city_path(city.country_id, city.region_id,city.id)
-          .geoobject__image
-            = image_tag(city.images[0].url(:max_table)) if !city.images.empty?
-          .geoobject__desc
-            .h2.geoobject__title
-              = city.name
-              span.geoobject__places-counter = city.visitors
-            .geoobject__place-country = city.country.name
-            .feed__item-activities
-              br
-              .likes-comments__stats
-                .feed__view-count
-                  i.fi-eye
-                    = city.visitors
+          .a.geoobject.href =link_to country_region_city_path(city.country_id, city.region_id,city.id)
+            .geoobject__image
+              = image_tag(city.images[0].url(:max_table)) if !city.images.empty?
+            .geoobject__desc
+              .h2.geoobject__title
+                = city.name
+                span.geoobject__places-counter
+                   = city.places.count
+                   '  мест
 
+              .geoobject__place-country = city.country.name
+              .feed__item-activities
+                br
+                .likes-comments__stats
+                  .feed__view-count
+                    i.fi-eye
+                      = city.visitors
 
-br
-= link_to new_country_region_city_path, class: 'btn btn-primary' do
-  i.fi-plus
-  |  New City
 
 

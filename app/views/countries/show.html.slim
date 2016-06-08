@@ -12,7 +12,7 @@
 
     ul.geo-object__breadcrumbs.breadcrumbs
       li.breadcrumbs__item
-        a href = countries_path Планета
+        a href = planet_path Планета
     hr
   .large-9.push-3.columns.map_alba
     = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=2&markers=#{country.coordinate.latitude}%2C#{country.coordinate.longitude}"

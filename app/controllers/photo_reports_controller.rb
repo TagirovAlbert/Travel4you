@@ -13,6 +13,10 @@ class PhotoReportsController < ApplicationController
     respond_with(photo_report)
   end
 
+  def index
+    @photo_reports = PhotoReport.all.order("created_at DESC")
+  end
+
   def show
     photo_report.increment(:visitors)
     photo_report.save

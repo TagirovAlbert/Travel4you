@@ -1,7 +1,35 @@
+= render "search"
 
-br
-= link_to new_photo_report_path, class: 'btn btn-primary' do
-  i.fi-plus
-  |  New Photo report
 
+.row
+  .medium-12.columns
+   .ul.feed
+    - @photo_reports.each do |report|
+     li.feed__item style = "margin-left: 10px"
+      = link_to report, class: "photoreport"
+         .photoreport__image_main
+           = image_tag(report.images[0].url(:min_table)) if !report.images.empty?
+         ul.photoreport__images_bottom
+            li.photoreport__image_mini
+              = image_tag(report.images[1].url(:max_table)) if !report.images.empty?
+            li.photoreport__image_mini
+              = image_tag(report.images[2].url(:max_table)) if !report.images.empty?
+            li.photoreport__image_mini
+              = image_tag(report.images[3].url(:max_table)) if !report.images.empty?
+         .photoreport__desc
+           h2.photoreport__title = report.name
+           .photoreport__stats
+             i.fi-photo
+             = report.images.length
+             | фотографий.
+             = report.city.name
+      .feed__item-activities-sec
+        span.feed__author
+          .feed__view-count
+             i.fi-torso
+               a.feed__author__link href = "#" Альберт
+        span.view-comments__stats
+              .feed__view-count
+                i.fi-eye
+                  =report.visitors
 
