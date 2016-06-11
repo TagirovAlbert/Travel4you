@@ -1,0 +1,42 @@
+
+.profile-header{
+  margin-bottom: 40px;
+
+}
+
+.slat__image{
+  width: 80px;
+  margin: 0 20px 0 0;
+  float: left;
+  display: inline;
+
+  img {
+    border-radius: 35px;
+  }
+}
+
+.user-data__name {
+  font-size: 23px;
+  color: #333333;
+  text-decoration: none;
+}
+
+.user-data__statistics {
+  font-size: 20px;
+  color: #232323;
+}
+
+.user-data {
+  font-size: 15px;
+  color: #6d6d6d;
+}
+
+.inline-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  position: relative;
+  zoom: 1;
+  display: block;
+}
