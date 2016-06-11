@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607191342) do
+ActiveRecord::Schema.define(version: 20160610192249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,10 +107,12 @@ ActiveRecord::Schema.define(version: 20160607191342) do
     t.string   "images",      default: [],              array: true
     t.integer  "city_id"
     t.integer  "country_id"
+    t.integer  "user_id"
   end
 
   add_index "photo_reports", ["city_id"], name: "index_photo_reports_on_city_id", using: :btree
   add_index "photo_reports", ["country_id"], name: "index_photo_reports_on_country_id", using: :btree
+  add_index "photo_reports", ["user_id"], name: "index_photo_reports_on_user_id", using: :btree
 
   create_table "places", force: :cascade do |t|
     t.string   "name"
@@ -172,6 +174,7 @@ ActiveRecord::Schema.define(version: 20160607191342) do
   add_foreign_key "identities", "users"
   add_foreign_key "photo_reports", "cities"
   add_foreign_key "photo_reports", "countries"
+  add_foreign_key "photo_reports", "users"
   add_foreign_key "places", "cities"
   add_foreign_key "places", "coordinates"
   add_foreign_key "regions", "coordinates"

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :identities, :dependent => :delete_all
+  has_many :photo_reports
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
   TEMP_LOGIN_PREFIX = 'change_login'
