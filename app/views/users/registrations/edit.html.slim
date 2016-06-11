@@ -14,6 +14,7 @@
         = f.input :last_name, required: true, autofocus: true
         = f.input :first_name, required: true, autofocus: true
         = f.input :email, required: true
+        = f.input :login, required: true
         -if current_user.not_have_ident?
            = f.input :password,
             autocomplete: "off",
