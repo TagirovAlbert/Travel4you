@@ -1,0 +1,9 @@
+ru:
+   activerecord:
+    models:
+      places:
+    attributes:
+      places:
+        name: "Название места"
+        description: "Описание места"
+        address: "Адрес (на английском)"

@@ -8,6 +8,7 @@ ru:
        first_name: "Имя"
        last_name: "Фамилия"
        email: "Email"
+       login: "Логин"
        password: "Пароль"
        password_confirmation: "Повторите пароль"
        remember_me: "Запомнить меня"
@@ -28,7 +29,9 @@ ru:
         email:
             blank: "Email не должен быть пустым"
             invalid: "Неверный email"
-
+        login:
+            blank: "Логин не должен быть пустым"
+            invalid: "Неверный логин"
         password:
             blank: "Пароль не может быть пустым"
             too_short: "Пароль слишком короткий"
