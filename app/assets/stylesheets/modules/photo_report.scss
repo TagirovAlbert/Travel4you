@@ -68,6 +68,36 @@
   overflow: hidden;
 }
 
+.user-info {
+  float: right;
+  min-width: 200px;
+  margin-top: -40px;
+}
+
+.user-info__userpic {
+  width: 30px;
+  float: left;
+  margin: 0 10px 0 0;
+
+  img {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+.user-info__name {
+  line-height: 12px;
+  font-size: 13px;
+  color: #06b0f9;
+  margin: 0 0 5px;
+}
+
+.user-info__post-date {
+  font-size: 12px;
+  line-height: 1.2em;
+  color: #999999;
+}
+
 
 
 
