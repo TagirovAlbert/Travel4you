@@ -6,4 +6,11 @@ class PagesController < ApplicationController
   def about_us
 
   end
+
+  def profile
+    @user = current_user
+    @photo_reports = @user.photo_reports
+
+  end
+
 end
