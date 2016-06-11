@@ -27,7 +27,7 @@
         span.feed__author
           .feed__view-count
              i.fi-torso
-               a.feed__author__link href = "#" Альберт
+               a.feed__author__link href = users_show_path(report.user.login) =report.user.first_name
         span.view-comments__stats
               .feed__view-count
                 i.fi-eye

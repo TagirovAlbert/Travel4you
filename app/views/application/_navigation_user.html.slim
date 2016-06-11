@@ -5,11 +5,14 @@ ul.right
       ul.dropdown
         new_user_registration_path
         li
+          a href = profile_path
+            | Мой профиль
+        li
           a href = edit_user_registration_path
-            | Edit profile
+            | Изменить профиль
         li
           a href = destroy_user_session_path
-            | Sign out
+            | Выйти
       li.has-dropdown
         a.user-dropdown(href="#") = "Создать"
         ul.dropdown

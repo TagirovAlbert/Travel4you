@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   respond_to :html
-
+  before_action :authenticate_user!, :except => [:my_show]
   expose(:place, attributes: :place_params)
   expose(:places) { Place.page(params[:page]) }
 
