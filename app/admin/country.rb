@@ -3,7 +3,18 @@ ActiveAdmin.register Country do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-# permit_params :list, :of, :attributes, :on, :model
+ permit_params :name, :information, :history, :economic, :culture, {images: []}
+ form do |f|
+  f.inputs "Изменить Country" do
+   f.input :name
+   f.input :information
+   f.input :economic
+   f.input :culture
+   f.input :history
+   f.file_field :images, multiple: true
+  end
+  f.button "Изменить"
+ end
 #
 # or
 #
