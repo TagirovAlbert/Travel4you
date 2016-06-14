@@ -32,7 +32,7 @@
                    = report.name
                  .geoobject__place-country
                    | опубликовано
-                   span style = "color: #06b0f9;"   Альберт
+                   span style = "color: #06b0f9;"    =report.user.first_name
 
 
 
@@ -60,11 +60,13 @@
 
   /! This is source ordered to be pulled to the left on larger screens
   .large-3.pull-9.columns
+   - if !(@regions.length == 0)
     h5 Регионы
     ul.side-nav
      - @regions.each do |region|
        li = link_to(country_region_path(region.country_id, region.id)) do
           = region.name
+   - if !(@cities.length == 0)
     h5 Посещаемые города
     ul.side-nav
       - @cities.each do |city|
