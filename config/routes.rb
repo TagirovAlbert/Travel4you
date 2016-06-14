@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   match '/about', to: 'pages#about_us', via: 'get', :as => :about
   match '/planet', to: 'cities#index', via: 'get', :as => :planet
   match '/profile', to: 'pages#profile', via: 'get', :as => :profile
-  match '/users/:login', to: 'profiles#show', via: 'get', :as => :users_show
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth/omniauth_callbacks', registrations: 'registrations' }
+  match '/users/:login', to: 'profiles#show_profiles', via: 'get', :as => :users_show
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch, :put], :as => :finish_signup
   root to: "pages#home"
 end
