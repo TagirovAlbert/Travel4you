@@ -1,11 +1,11 @@
 .row
   .large-5.columns
     = form_tag countries_path, :method => :get do
-     .row.collapse.postfix-radius
+     .row.collapse.postfix-round
        .small-9.columns
 
           = text_field_tag :search
        .small-3.columns
-          = link_to  "Найти", :class => "button postfix"
+         a.button.postfix href="#"  Найти
 
   = render "routes"
