@@ -1,0 +1,8 @@
+ru:
+   active_record:
+    models:
+      photo_report:
+    attributes:
+      photo_report:
+        name: "Название фотоотчёта"
+        description: "Описание фотоотчёта"
