@@ -18,7 +18,7 @@
           a href = country_region_city_path(place.city.country_id, place.city.region_id, place.city_id) = place.city.name
 
     hr
-    = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=5&markers=#{place.coordinate.latitude}%2C#{place.coordinate.longitude}"
+    = image_tag "http://maps.google.com/maps/api/staticmap?size=850x400&sensor=false&zoom=12&markers=#{place.coordinate.latitude}%2C#{place.coordinate.longitude}"
 
 
 
