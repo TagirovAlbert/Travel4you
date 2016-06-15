@@ -97,6 +97,7 @@ group :development do
   gem "letter_opener"
   gem "quiet_assets"
   gem "rails-erd"
+  gem 'rails_12factor'
   gem "slim-rails"
   gem "spring"
   gem "spring-commands-rspec"
