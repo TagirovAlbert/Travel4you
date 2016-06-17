@@ -26,6 +26,7 @@ module RailsBase
     # Enable deflate / gzip compression of controller-generated responses
     config.middleware.use Rack::Deflater
 
+    config.serve_static_assets = true
     # Set default From address for all Mailers
     config.action_mailer.default from: ENV.fetch("MAILER_SENDER_ADDRESS")
 

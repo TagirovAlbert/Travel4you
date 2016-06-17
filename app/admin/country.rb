@@ -11,7 +11,13 @@ ActiveAdmin.register Country do
    f.input :economic
    f.input :culture
    f.input :history
+
    f.file_field :images, multiple: true
+  end
+  f.inputs "Coordinate" do
+    f.has_many :coordinate do |s|
+      s.input :address
+    end
   end
   f.button "Изменить"
  end

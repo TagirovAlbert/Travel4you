@@ -30,6 +30,8 @@ gem "gmaps4rails"
 gem "decent_decoration"
 gem "decent_exposure"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'aws-sdk'
+gem 'fog'
 gem 'mini_magick'
 gem "devise"
 gem 'activeadmin', github: 'activeadmin'
