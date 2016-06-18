@@ -6,5 +6,7 @@ class City < ActiveRecord::Base
   has_many :photo_reports
   has_many :places
   mount_uploaders :images, ImagesUploader
+  accepts_nested_attributes_for :coordinate, :region, :country
+
 
 end

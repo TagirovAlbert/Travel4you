@@ -2,8 +2,7 @@ ActiveAdmin.register Country do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
- permit_params :name, :information, :history, :economic, :culture, {images: []}
+ permit_params :name, :information, :history, :economic,:coordinate_id,  :culture, {images: []}
  form do |f|
   f.inputs "Изменить Country" do
    f.input :name
@@ -12,13 +11,12 @@ ActiveAdmin.register Country do
    f.input :culture
    f.input :history
 
+   f.collection_select :coordinate_id, Coordinate.all, :id, :address, {:prompt => "Выберете координату"}
+   br
    f.file_field :images, multiple: true
+
   end
-  f.inputs "Coordinate" do
-    f.has_many :coordinate do |s|
-      s.input :address
-    end
-  end
+
   f.button "Изменить"
  end
 #
