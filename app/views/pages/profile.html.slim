@@ -3,7 +3,7 @@
   .medium-12.columns
     .profile-header
       .slat__image
-        = image_tag 'avatar'
+        = image_tag 'avatar.png'
       .div
         .user-data__name
           a href = users_show_path(@user.login) = "#{@user.first_name} #{@user.last_name}"
